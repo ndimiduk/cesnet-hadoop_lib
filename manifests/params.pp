@@ -4,11 +4,8 @@
 #
 class hadoop_lib::params {
   case "${::osfamily}-${::operatingsystem}" {
-    /RedHat-Fedora/: {
-      $mapred_home = '/usr/share/hadoop/mapreduce/'
-    }
     /Debian|RedHat/: {
-      $mapred_home = '/usr/lib/hadoop-mapreduce'
+      $mapred_home = '/usr/hdp/current/hadoop-mapreduce-client'
     }
     default: {
       fail("${::osfamily}/${::operatingsystem} not supported")
